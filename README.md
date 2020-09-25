@@ -4,6 +4,20 @@
 
 # Secret Provider
 
+------------------------------------
+
+## Why Was this Forked
+
+This was forked to add [this dependency](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-sts/1.11.869).
+
+The way we use AWS roles in our local credentials means this dependency was required to enable connecting to AWS from local machines
+using this library. We use it when testing secrets provisioning for Kafka Connect connectors in the [kafka-connect](https://github.com/simplybusiness/kafka-connect)
+repo.
+
+
+------------------------------------
+
+
 Secret provider for Kafka to provide indirect look up of configuration values.
 
 
