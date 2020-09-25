@@ -38,7 +38,7 @@ allprojects {
         azureVersion = "1.22.0"
         azureKeyVaultVersion = "4.1.1"
         azureIdentityVersion = "1.0.5"
-        awsSecretsVersion = "1.11.762"
+        awsSecretsVersion = "1.11.869"
 
         //test
         scalaTest = "3.1.1"
@@ -111,6 +111,7 @@ allprojects {
         compile "com.azure:azure-security-keyvault-secrets:${azureKeyVaultVersion}"
         compile "com.azure:azure-identity:${azureIdentityVersion}"
         compile "com.amazonaws:aws-java-sdk-secretsmanager:${awsSecretsVersion}"
+        compile "com.amazonaws:aws-java-sdk-sts:${awsSecretsVersion}"
 
         testImplementation "org.mockito:mockito-scala_${scalaMajorVersion}:${mockitoVersion}"
         testImplementation "org.scalacheck:scalacheck_${scalaMajorVersion}:${scalaCheck}"
