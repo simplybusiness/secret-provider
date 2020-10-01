@@ -117,7 +117,10 @@ trait AWSHelper extends StrictLogging {
             value = value,
             fileName = getFileName(rootDir, secretId, key.toLowerCase, separator)
           ),
-          getTTL(client, secretId)
+          //Used to be `getTTL(client, secretId)` but we don't need this as our secrets don't expire. Calling getTTL
+          // was failing as it calls DescribeSecret in the AWS SDK and the role we use to get secrets doesn't have the
+          // DescribeSecret permission.
+          None
         )
 
       case Failure(exception) =>
