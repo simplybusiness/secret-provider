@@ -55,10 +55,12 @@ class AWSSecretProvider() extends ConfigProvider with AWSHelper {
       awsClient: AWSSecretsManager,
       path: String,
       keys: Set[String]): Map[String, (String, Option[OffsetDateTime])] = {
-    keys.map { key =>
+    val resultMap = keys.map { key =>
       logger.info(s"Looking up value at [$path] for key [$key]")
       val (value, expiry) = getSecretValue(awsClient, rootDir, path, key)
       (key, (value, expiry))
     }.toMap
+    resultMap.foreach(println)
+    resultMap
   }
 }
